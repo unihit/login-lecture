@@ -24,10 +24,11 @@ const app = express();
 const home = require("./src/routes/home");
 
 // 앱 세팅
-app.set("view engin", "ejs");
+app.set("view engine", "ejs");
 app.set("views", "./src/views");
 
 // use -> 미들웨어를 등록해주는 메서드
+app.use(express.static(`${__dirname}/src/public`));
 app.use("/", home);
 
 module.exports = app;
